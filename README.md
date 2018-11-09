@@ -2,7 +2,9 @@
 
 Aplicación del tiempo hecha con ReactJS
 
-
+## Dependencias
+* react-weathericons ( Para iconos )
+* prop-types ( Tipado de la aplicación )
 #
 #
 #

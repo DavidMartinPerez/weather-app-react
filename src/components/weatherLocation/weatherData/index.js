@@ -1,13 +1,19 @@
-import React from 'react'
-import Location from './location'
-import WeatherData from './weatherData'
+import React from 'react';
 
-const WeatherLocation = () => (
-    <div>
-        < Location city={'Málaga'} />
-        < WeatherData />
-    </div>
-)
+import WeatherExtraInfo from './weatherExtraInfo'
+import WeatherTemperature from './weatherTemperature'
+import './style.css'
+                       //Doble destructuring de un objecto compuesto de otro objecto
+const WeatherData = ( { data: { temperature, weatherState, wind, humidity } } ) => {
 
 
-export default WeatherLocation;
+    return (<div className="weatherDataCont">
+        < WeatherTemperature
+            temperature={ temperature }
+            weatherState={ weatherState }
+        />
+        < WeatherExtraInfo humidity={ humidity } wind={ wind } />
+    </div>)
+}
+
+export default WeatherData;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Location from './location'
 import WeatherData from './weatherData'
 import { RAIN } from '../../constans/weathers'
@@ -14,12 +14,32 @@ const data = {
 }
 
 
-const WeatherLocation = () => (
-    <div className="weatherLocationCont">
-        < Location city={'Málaga'} />
-        < WeatherData data={data} />
-    </div>
-)
+class WeatherLocation extends Component{
+
+    constructor() {
+        super();
+
+        this.state = {
+            city: 'Málaga',
+            data: data
+        }
+    }
+
+    handleUpdate = () => {
+        
+    }
+
+    render(){
+        return (
+            <div className="weatherLocationCont">
+                < Location city={ this.state.city } />
+                < WeatherData data={ data } />
+                <button onClick={ this.handleUpdate } >Refrescar</button>
+            </div>
+        )
+    }
+
+}
 
 
 export default WeatherLocation;

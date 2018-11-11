@@ -16,11 +16,11 @@ const icons = {
     default: "day-sunny",
     cloud: "cloud",
     cloudy: "cloudy",
-    sun: "day-sunny",
     rain: "rain",
+    windy: "windy",
     snow: "snow",
-    fog: "day-fog",
-    windy: "windy"
+    thunder: "day-thunderstorm",
+    drizzle: "day-showers",
 }
 
 let getWeatherIcons = ( temporary ) => {
@@ -34,7 +34,7 @@ let getWeatherIcons = ( temporary ) => {
 }
 
 WeatherTemperature.propTypes = {
-    temperature: PropTypes.number.isRequired,
+    temperature: PropTypes.string.isRequired,
     weatherState: PropTypes.string.isRequired,
 }
 

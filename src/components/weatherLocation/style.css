@@ -1,13 +1,17 @@
 .weatherLocationCont{
-    width: 400px;
-    padding: 15px;
+    width: cal(100% - 20px);
+    margin: 0 10px;
+    min-width: 350px;
+    box-sizing: border-box; /*Calculo del componente*/
+    padding: 25px;
     font-family: 'Roboto', sans-serif;
     box-shadow: 10px 10px 40px -12px rgba(0, 0, 0, 0.5);
-    margin: 0 auto;
+    cursor: pointer;
 }
 
 .locationCont h2{
     margin: 0;
+    white-space: nowrap;
 }
 
 .locationCont{
@@ -17,4 +21,5 @@
     padding-left: 10px;
     color: #888;
     line-height: 35px;
+    overflow: hidden;
 }

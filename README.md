@@ -5,6 +5,11 @@ Aplicación del tiempo hecha con ReactJS
 ## Dependencias
 * react-weathericons ( Para iconos )
 * prop-types ( Tipado de la aplicación )
+* convert-units ( Convertir unidades )
+* @material-ui/core ( Material Design )
+* react-flexbox-grid ( Sistema de GRID de Bootstrap )
+* momentjs ( Manejo de fechas )
+
 #
 #
 #

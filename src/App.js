@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper'
 import AppBar from '@material-ui/core/AppBar'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
-//import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import LocationList from './components/locationList'
 import ForecastExtended from "./components/forecastExtended"
@@ -43,17 +43,17 @@ class App extends Component {
     }
 
     render() {
-        const { city } = this.state
+        const { city, message, openSnackbar } = this.state
         return (
             <div>
-            {/*< Snackbar
+            {< Snackbar
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                 message={ message }
                 open={openSnackbar}
                 onClose={this.handleSnackbarClose}
                 autoHideDuration={3500}
                 disableWindowBlurListener={true}
-            />*/}
+            />}
             <Grid>
                 <Row>
                     <AppBar position='sticky' color="secondary">

@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-flexbox-grid'
-import { createStore } from 'redux';
 import Paper from '@material-ui/core/Paper'
 import AppBar from '@material-ui/core/AppBar'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
 import Snackbar from '@material-ui/core/Snackbar';
+import PropTypes from 'prop-types'
 
 import LocationList from './components/locationList'
 import ForecastExtended from "./components/forecastExtended"
 import './App.css';
 import './components/style.css'
+
+//Action redux
+import { setCity } from './actions'
 
 const cities = [
     "Malaga,es",
@@ -18,10 +22,6 @@ const cities = [
     "Madrid,es",
     "Buenos Aires,ar"
 ]
-
-const store =  createStore(()=>{
-
-}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
 
@@ -37,11 +37,9 @@ class App extends Component {
     }
 
     handleSelectedLocation = (city) => {
-        console.log(`handleSelectedLocation ${city}}`)
         this.setState({ city })
 
-        const action = { type: 'setCity', value: city }
-        store.dispatch( action )
+        this.props.setCity(city)
     }
 
     handleSnackbarClose = () => {
@@ -91,4 +89,16 @@ class App extends Component {
     }
 }
 
-export default App;
+//PropTypes
+App.propTypes = {
+    setCity: PropTypes.func.isRequired,
+}
+
+//Connect Redux React
+//Mapeo de acciones que tenemos para utilizar el store
+const mapDispatchToPropsActions = (dispatch) => ({
+    setCity: value => dispatch(setCity(value))
+})
+const AppConnected = connect(null, mapDispatchToPropsActions)(App)
+
+export default AppConnected;

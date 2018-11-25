@@ -1,8 +1,9 @@
 # weather-app-react
 
-Aplicación del tiempo hecha con ReactJS
+Aplicación del tiempo hecha con ReactJS, MAterial UI y Redux
 
 ## Dependencias
+* Redux apartir de react-redux (State manager)
 * react-weathericons ( Para iconos )
 * prop-types ( Tipado de la aplicación )
 * convert-units ( Convertir unidades )

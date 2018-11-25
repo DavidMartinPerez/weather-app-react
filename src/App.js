@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid'
+import { createStore } from 'redux';
 import Paper from '@material-ui/core/Paper'
 import AppBar from '@material-ui/core/AppBar'
 import Typography from '@material-ui/core/Typography'
@@ -18,6 +19,10 @@ const cities = [
     "Buenos Aires,ar"
 ]
 
+const store =  createStore(()=>{
+
+}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 class App extends Component {
 
     constructor() {
@@ -26,19 +31,20 @@ class App extends Component {
 
         this.state = {
             city: null,
-            message: "¡Bienvenido a mi aplicacción del tiempo hecha en ReactJS con Material UI!",
+            message: "¡Bienvenido a mi aplicacción del tiempo hecha en ReactJS con Material UI y Redux!",
             openSnackbar: true
         }
     }
 
     handleSelectedLocation = (city) => {
-        console.log("handleSelectedLocation ->" + city)
-
+        console.log(`handleSelectedLocation ${city}}`)
         this.setState({ city })
+
+        const action = { type: 'setCity', value: city }
+        store.dispatch( action )
     }
 
     handleSnackbarClose = () => {
-        console.log("hgola")
         this.setState({ openSnackbar: false })
     }
 
